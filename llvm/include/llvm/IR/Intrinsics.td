@@ -1341,6 +1341,16 @@ def int_preserve_struct_access_index : Intrinsic<[llvm_anyptr_ty],
                                                  [IntrNoMem, ImmArg<1>,
                                                   ImmArg<2>]>;
 
+//===------- Intrinsics that are used for dfi policy enforcement -------===//
+
+def int_dfi_store_tag : Intrinsic<[],
+                              [llvm_i64_ty, llvm_anyptr_ty],
+                              [IntrWriteMem]>;
+
+def int_dfi_load_tag : Intrinsic<[llvm_anyptr_ty],
+                              [llvm_i64_ty, llvm_anyptr_ty],
+                              [IntrReadMem]>;
+
 //===----------------------------------------------------------------------===//
 // Target-specific intrinsics
 //===----------------------------------------------------------------------===//
